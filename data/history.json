@@ -1,8 +1,44 @@
 [
-  {"updated_at":"2026-09-11T00:00:00Z","score":7.5,"macro_score":7.4,"spec_score":7.6},
-  {"updated_at":"2026-09-12T00:00:00Z","score":8.0,"macro_score":7.8,"spec_score":8.2},
-  {"updated_at":"2026-09-13T00:00:00Z","score":8.5,"macro_score":8.2,"spec_score":8.7},
-  {"updated_at":"2026-09-14T00:00:00Z","score":9.2,"macro_score":9.0,"spec_score":9.3},
-  {"updated_at":"2026-09-15T00:00:00Z","score":8.7,"macro_score":9.0,"spec_score":8.5},
-  {"updated_at":"2026-09-16T00:00:00Z","score":9.0,"macro_score":8.8,"spec_score":9.2}
+  {
+    "updated_at": "2026-09-11T00:00:00Z",
+    "score": 7.5,
+    "macro_score": 7.4,
+    "spec_score": 7.6
+  },
+  {
+    "updated_at": "2026-09-12T00:00:00Z",
+    "score": 8.0,
+    "macro_score": 7.8,
+    "spec_score": 8.2
+  },
+  {
+    "updated_at": "2026-09-13T00:00:00Z",
+    "score": 8.5,
+    "macro_score": 8.2,
+    "spec_score": 8.7
+  },
+  {
+    "updated_at": "2026-09-14T00:00:00Z",
+    "score": 9.2,
+    "macro_score": 9.0,
+    "spec_score": 9.3
+  },
+  {
+    "updated_at": "2026-09-15T00:00:00Z",
+    "score": 8.7,
+    "macro_score": 9.0,
+    "spec_score": 8.5
+  },
+  {
+    "updated_at": "2026-09-16T00:00:00Z",
+    "score": 9.0,
+    "macro_score": 8.8,
+    "spec_score": 9.2
+  },
+  {
+    "updated_at": "2026-09-16T23:28:12.997881+00:00",
+    "score": 5.72,
+    "macro_score": 5.0,
+    "spec_score": 6.19
+  }
 ]

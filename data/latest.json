@@ -1,26 +1,130 @@
 {
   "version": 2,
-  "updated_at": "2026-09-17T05:06:00+10:00",
-  "updated_at_display": "2026-09-17 05:06 Sydney",
-  "freshness": "初始快照 · 等待自动任务",
-  "provider_note": "初始值来自当前监控框架；发布后由 GitHub Action 自动重算。",
-  "score": 9.0,
-  "macro_score": 8.8,
-  "spec_score": 9.2,
+  "updated_at": "2026-09-16T23:28:12.997881+00:00",
+  "updated_at_display": "2026-09-17 09:28 Sydney",
+  "freshness": "自动更新 · 后备行情",
+  "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（日/月频率）。GitHub Action 每小时重算。",
+  "score": 5.72,
+  "macro_score": 5.0,
+  "spec_score": 6.19,
   "signals": [
-    {"id":"hood","score":9.5,"raw_display":"HOOD ~103","note":"近期euphoria后明显回撤","weight":14},
-    {"id":"hoodqqq","score":10.0,"raw_display":"明显背离","note":"HOOD弱于QQQ","weight":14},
-    {"id":"arkk","score":8.8,"raw_display":"偏弱","note":"高beta尚未全面修复","weight":10},
-    {"id":"breadth","score":8.8,"raw_display":"偏弱","note":"等待RSP/IWM确认","weight":10},
-    {"id":"vix","score":8.0,"raw_display":"偏低","note":"宏观风险下仍有complacency","weight":8},
-    {"id":"oil","score":8.8,"raw_display":">$100","note":"能源通胀压力高","weight":9},
-    {"id":"teny","score":9.0,"raw_display":"~5.0%","note":"核心阈值附近","weight":11},
-    {"id":"twoy","score":8.5,"raw_display":"偏高","note":"政策路径偏鹰","weight":6},
-    {"id":"fed","score":9.0,"raw_display":"偏鹰","note":"更多加息风险仍被定价","weight":8},
-    {"id":"cpi","score":8.5,"raw_display":"偏热","note":"通胀压力仍高","weight":5},
-    {"id":"riskoff","score":8.0,"raw_display":"局部扩散","note":"尚非全面risk-off","weight":5}
+    {
+      "id": "hood",
+      "score": 8.71,
+      "raw_display": "HOOD 5D -9.42%",
+      "note": "euphoria后的5日回撤",
+      "weight": 14
+    },
+    {
+      "id": "hoodqqq",
+      "score": 8.57,
+      "raw_display": "5D相对 -7.80%",
+      "note": "HOOD相对QQQ越弱，风险越高",
+      "weight": 14
+    },
+    {
+      "id": "arkk",
+      "score": 4.47,
+      "raw_display": "高beta相对 -1.68%",
+      "note": "ARKK/SMH/XBI相对QQQ",
+      "weight": 10
+    },
+    {
+      "id": "breadth",
+      "score": 3.41,
+      "raw_display": "breadth相对 -0.35%",
+      "note": "RSP/SPY + IWM/QQQ代理",
+      "weight": 10
+    },
+    {
+      "id": "vix",
+      "score": 5,
+      "raw_display": "—",
+      "note": "低VIX与高宏观风险并存=complacency",
+      "weight": 8
+    },
+    {
+      "id": "oil",
+      "score": 5,
+      "raw_display": "Brent — / WTI —",
+      "note": "高油价增加通胀压力",
+      "weight": 9
+    },
+    {
+      "id": "teny",
+      "score": 5,
+      "raw_display": "—",
+      "note": "5%附近为关键阈值",
+      "weight": 11
+    },
+    {
+      "id": "twoy",
+      "score": 5,
+      "raw_display": "—",
+      "note": "短端反映政策路径",
+      "weight": 6
+    },
+    {
+      "id": "fed",
+      "score": 5,
+      "raw_display": "—",
+      "note": "2Y与政策上限差作为代理",
+      "weight": 8
+    },
+    {
+      "id": "cpi",
+      "score": 5,
+      "raw_display": "—",
+      "note": "核心CPI同比压力代理",
+      "weight": 5
+    },
+    {
+      "id": "riskoff",
+      "score": 3.34,
+      "raw_display": "1D basket -0.17%",
+      "note": "QQQ/IWM/ARKK/XBI平均",
+      "weight": 5
+    }
   ],
   "market": {
-    "QQQ":{"display":"—"},"SPY":{"display":"—"},"HOOD":{"display":"~103"},"ARKK":{"display":"—"},"SMH":{"display":"—"},"XBI":{"display":"—"},"IWM":{"display":"—"},"RSP":{"display":"—"},"VIX":{"display":"—"},"DGS10":{"display":"~5.0%"},"DGS2":{"display":"—"},"BRENT":{"display":">$100"},"WTI":{"display":">$100"}
+    "SPY": {
+      "display": "754.05 (-0.44%)"
+    },
+    "QQQ": {
+      "display": "704.72 (+0.03%)"
+    },
+    "HOOD": {
+      "display": "104.42 (-5.46%)"
+    },
+    "ARKK": {
+      "display": "83.18 (-0.37%)"
+    },
+    "SMH": {
+      "display": "545.56 (+0.64%)"
+    },
+    "XBI": {
+      "display": "154.18 (+0.10%)"
+    },
+    "IWM": {
+      "display": "283.92 (-0.43%)"
+    },
+    "RSP": {
+      "display": "212.28 (-0.79%)"
+    },
+    "VIX": {
+      "display": "—"
+    },
+    "DGS10": {
+      "display": "—"
+    },
+    "DGS2": {
+      "display": "—"
+    },
+    "BRENT": {
+      "display": "—"
+    },
+    "WTI": {
+      "display": "—"
+    }
   }
 }
