@@ -1,0 +1,4 @@
+{
+  "_comment": "Optional manual score overrides 0-10. Leave empty for full auto-proxy mode.",
+  "signals": {}
+}
