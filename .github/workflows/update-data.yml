@@ -1,0 +1,40 @@
+name: Update correction index
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 * * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: correction-index-data
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Update market data
+        env:
+          ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+          ALPACA_API_SECRET: ${{ secrets.ALPACA_API_SECRET }}
+        run: python scripts/update_data.py
+      - name: Commit changed data
+        run: |
+          git config user.name "correction-index-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/latest.json data/history.json
+          if git diff --cached --quiet; then
+            echo "No data changes"
+          else
+            git commit -m "chore: update correction index data"
+            git push
+          fi
