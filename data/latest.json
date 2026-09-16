@@ -1,0 +1,26 @@
+{
+  "version": 2,
+  "updated_at": "2026-09-17T05:06:00+10:00",
+  "updated_at_display": "2026-09-17 05:06 Sydney",
+  "freshness": "初始快照 · 等待自动任务",
+  "provider_note": "初始值来自当前监控框架；发布后由 GitHub Action 自动重算。",
+  "score": 9.0,
+  "macro_score": 8.8,
+  "spec_score": 9.2,
+  "signals": [
+    {"id":"hood","score":9.5,"raw_display":"HOOD ~103","note":"近期euphoria后明显回撤","weight":14},
+    {"id":"hoodqqq","score":10.0,"raw_display":"明显背离","note":"HOOD弱于QQQ","weight":14},
+    {"id":"arkk","score":8.8,"raw_display":"偏弱","note":"高beta尚未全面修复","weight":10},
+    {"id":"breadth","score":8.8,"raw_display":"偏弱","note":"等待RSP/IWM确认","weight":10},
+    {"id":"vix","score":8.0,"raw_display":"偏低","note":"宏观风险下仍有complacency","weight":8},
+    {"id":"oil","score":8.8,"raw_display":">$100","note":"能源通胀压力高","weight":9},
+    {"id":"teny","score":9.0,"raw_display":"~5.0%","note":"核心阈值附近","weight":11},
+    {"id":"twoy","score":8.5,"raw_display":"偏高","note":"政策路径偏鹰","weight":6},
+    {"id":"fed","score":9.0,"raw_display":"偏鹰","note":"更多加息风险仍被定价","weight":8},
+    {"id":"cpi","score":8.5,"raw_display":"偏热","note":"通胀压力仍高","weight":5},
+    {"id":"riskoff","score":8.0,"raw_display":"局部扩散","note":"尚非全面risk-off","weight":5}
+  ],
+  "market": {
+    "QQQ":{"display":"—"},"SPY":{"display":"—"},"HOOD":{"display":"~103"},"ARKK":{"display":"—"},"SMH":{"display":"—"},"XBI":{"display":"—"},"IWM":{"display":"—"},"RSP":{"display":"—"},"VIX":{"display":"—"},"DGS10":{"display":"~5.0%"},"DGS2":{"display":"—"},"BRENT":{"display":">$100"},"WTI":{"display":">$100"}
+  }
+}
