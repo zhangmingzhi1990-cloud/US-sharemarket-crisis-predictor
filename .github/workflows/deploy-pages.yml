@@ -23,11 +23,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-        with:
-          enablement: true
+      - name: Prepare public site
+        run: |
+          mkdir -p public/data
+          cp index.html public/
+          cp data/latest.json data/history.json public/data/
       - uses: actions/upload-pages-artifact@v3
         with:
-          path: .
+          path: public
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
