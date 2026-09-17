@@ -1,23 +1,21 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import os,json,csv,io,statistics,urllib.request,urllib.parse
+import os,json,csv,io,statistics,time,urllib.request,urllib.parse,zipfile
 from pathlib import Path
-from datetime import datetime,timezone
+from datetime import date,datetime,timezone
 from zoneinfo import ZoneInfo
 
 ROOT=Path(__file__).resolve().parents[1]; DATA=ROOT/'data'; LATEST=DATA/'latest.json'; HISTORY=DATA/'history.json'; OVERRIDES=DATA/'manual_overrides.json'
 SYMBOLS=['SPY','QQQ','HOOD','ARKK','SMH','XBI','IWM','RSP']
 WEIGHTS={'hood':14,'hoodqqq':14,'arkk':10,'breadth':10,'vix':8,'oil':9,'teny':11,'twoy':6,'fed':8,'cpi':5,'riskoff':5}
 MACRO_IDS={'oil','teny','twoy','fed','cpi'}; SPEC_IDS={'hood','hoodqqq','arkk','breadth','vix','riskoff'}
+FRED_IDS={'DGS10':'DGS10','DGS2':'DGS2','VIX':'VIXCLS','BRENT':'DCOILBRENTEU','WTI':'DCOILWTICO','FED':'DFEDTARU','CORE_CPI':'CPILFESL'}
 
 def clamp(x,lo=0,hi=10): return max(lo,min(hi,float(x)))
 def lin(x,a,b,lo=0,hi=10): return lo+(hi-lo)*(x-a)/(b-a)
 def req_json(url,headers=None):
     r=urllib.request.Request(url,headers=headers or {'User-Agent':'Mozilla/5.0 correction-index'})
     with urllib.request.urlopen(r,timeout=20) as x:return json.loads(x.read().decode())
-def req_text(url,headers=None):
-    r=urllib.request.Request(url,headers=headers or {'User-Agent':'Mozilla/5.0 correction-index'})
-    with urllib.request.urlopen(r,timeout=20) as x:return x.read().decode()
 def yahoo_bars(symbol):
     u=f"https://query1.finance.yahoo.com/v8/finance/chart/{urllib.parse.quote(symbol)}?range=1mo&interval=1d&includePrePost=false"
     j=req_json(u); r=j['chart']['result'][0]; q=r['indicators']['quote'][0]; out=[]
@@ -33,23 +31,47 @@ def alpaca_bars(symbols):
 def fetch_equities():
     try:
         a=alpaca_bars(SYMBOLS)
-        if a:return a,'Alpaca'
+        if a and all(len(a.get(s,[]))>=7 for s in SYMBOLS):return a,'Alpaca'
     except Exception as e:print('Alpaca failed:',e)
     out={}
     for s in SYMBOLS:
         try:out[s]=yahoo_bars(s)
         except Exception as e:print('Yahoo failed',s,e);out[s]=[]
+    missing=[s for s in SYMBOLS if len(out[s])<7]
+    if missing:raise RuntimeError('Incomplete equity data: '+', '.join(missing))
     return out,'Yahoo fallback'
-def fred_series(sid):
-    txt=req_text(f'https://fred.stlouisfed.org/graph/fredgraph.csv?id={urllib.parse.quote(sid)}')
-    vals=[]
-    for r in csv.DictReader(io.StringIO(txt)):
-        raw=r.get(sid)
-        if raw and raw not in ('.',''):
-            try:vals.append((r.get('DATE'),float(raw)))
-            except:pass
-    return vals
-def latest_fred(sid,n=20):return fred_series(sid)[-n:]
+def parse_fred_csv(text,series):
+    for row in csv.DictReader(io.StringIO(text.lstrip('\ufeff'))):
+        observed=row.get('observation_date') or row.get('DATE')
+        if not observed:continue
+        for sid in series:
+            raw=row.get(sid)
+            if raw and raw!='.':
+                series[sid].append((observed,float(raw)))
+def fetch_fred():
+    ids=list(FRED_IDS.values());url='https://fred.stlouisfed.org/graph/fredgraph.csv?'+urllib.parse.urlencode({'id':','.join(ids)})
+    for attempt in range(3):
+        try:
+            request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 correction-index'})
+            with urllib.request.urlopen(request,timeout=30) as response:payload=response.read()
+            series={sid:[] for sid in ids}
+            if zipfile.is_zipfile(io.BytesIO(payload)):
+                with zipfile.ZipFile(io.BytesIO(payload)) as archive:
+                    for name in archive.namelist():
+                        if name.lower().endswith('.csv'):
+                            parse_fred_csv(archive.read(name).decode('utf-8-sig'),series)
+            else:
+                parse_fred_csv(payload.decode('utf-8-sig'),series)
+            today=datetime.now(timezone.utc).date()
+            for sid,rows in series.items():
+                if len(rows)<(13 if sid=='CPILFESL' else 1):raise ValueError('Missing FRED observations for '+sid)
+                age=(today-date.fromisoformat(rows[-1][0])).days
+                if age<0 or age>(75 if sid=='CPILFESL' else 10):raise ValueError(f'Stale FRED observations for {sid}: {rows[-1][0]}')
+            return series
+        except Exception as e:
+            if attempt==2:raise RuntimeError('FRED data unavailable; keeping the last published snapshot') from e
+            print(f'FRED attempt {attempt+1} failed:',e)
+            time.sleep(attempt+1)
 def last(rows):return rows[-1]['c'] if rows else None
 def pct(rows,d=1):
     if len(rows)<d+1:return None
@@ -59,9 +81,9 @@ def fn(x,n=2,p='',s=''):return '—' if x is None else f'{p}{x:.{n}f}{s}'
 def loadj(p,d):
     try:return json.loads(p.read_text())
     except:return d
-def core_cpi_yoy():
-    v=latest_fred('CPILFESL',15)
-    return None if len(v)<13 else (v[-1][1]/v[-13][1]-1)*100
+def core_cpi_yoy(series):
+    v=series['CPILFESL']
+    return (v[-1][1]/v[-13][1]-1)*100
 
 def build(eq,m,overrides):
     r=lambda s,d:pct(eq.get(s,[]),d)
@@ -94,18 +116,17 @@ def build(eq,m,overrides):
     return out
 
 def main():
-    DATA.mkdir(exist_ok=True); eq,provider=fetch_equities(); m={}
-    for k,sid in {'DGS10':'DGS10','DGS2':'DGS2','VIX':'VIXCLS','BRENT':'DCOILBRENTEU','WTI':'DCOILWTICO','FED':'DFEDTARU'}.items():
-        try:v=latest_fred(sid,5);m[k]=v[-1][1] if v else None
-        except Exception as e:print('FRED failed',sid,e);m[k]=None
-    try:m['CORE_CPI_YOY']=core_cpi_yoy()
-    except Exception as e:print('CPI failed',e);m['CORE_CPI_YOY']=None
+    DATA.mkdir(exist_ok=True); eq,provider=fetch_equities(); fred=fetch_fred()
+    m={k:fred[sid][-1][1] for k,sid in FRED_IDS.items() if k!='CORE_CPI'}
+    m['CORE_CPI_YOY']=core_cpi_yoy(fred)
     signals=build(eq,m,loadj(OVERRIDES,{'signals':{}})); total=sum(s['score']*s['weight'] for s in signals)/100
     sub=lambda ids:sum(s['score']*s['weight'] for s in signals if s['id'] in ids)/sum(s['weight'] for s in signals if s['id'] in ids)
     now=datetime.now(timezone.utc); syd=now.astimezone(ZoneInfo('Australia/Sydney')); market={}
     for s in SYMBOLS:
         rows=eq.get(s,[]); market[s]={'display':f"{last(rows):.2f} ({fp(pct(rows,1))})" if last(rows) is not None else '—'}
-    market.update({'VIX':{'display':fn(m.get('VIX'))},'DGS10':{'display':fn(m.get('DGS10'),3,s='%')},'DGS2':{'display':fn(m.get('DGS2'),3,s='%')},'BRENT':{'display':fn(m.get('BRENT'),2,'$')},'WTI':{'display':fn(m.get('WTI'),2,'$')}})
-    payload={'version':2,'updated_at':now.isoformat(),'updated_at_display':syd.strftime('%Y-%m-%d %H:%M Sydney'),'freshness':'自动更新' if provider=='Alpaca' else '自动更新 · 后备行情','provider_note':f'股票/ETF: {provider}；宏观: FRED（日/月频率）。GitHub Action 每小时重算。','score':round(total,2),'macro_score':round(sub(MACRO_IDS),2),'spec_score':round(sub(SPEC_IDS),2),'signals':signals,'market':market}
+    for key,display in {'VIX':fn(m['VIX']),'DGS10':fn(m['DGS10'],3,s='%'),'DGS2':fn(m['DGS2'],3,s='%'),'BRENT':fn(m['BRENT'],2,'$'),'WTI':fn(m['WTI'],2,'$')}.items():
+        observed=fred[FRED_IDS[key]][-1][0]
+        market[key]={'display':f'{display} ({observed})','asof':observed}
+    payload={'version':2,'updated_at':now.isoformat(),'updated_at_display':syd.strftime('%Y-%m-%d %H:%M Sydney'),'freshness':'自动更新' if provider=='Alpaca' else '自动更新 · 后备行情','provider_note':f'股票/ETF: {provider}；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。','score':round(total,2),'macro_score':round(sub(MACRO_IDS),2),'spec_score':round(sub(SPEC_IDS),2),'signals':signals,'market':market}
     LATEST.write_text(json.dumps(payload,ensure_ascii=False,indent=2)); hist=loadj(HISTORY,[]); hist.append({'updated_at':now.isoformat(),'score':payload['score'],'macro_score':payload['macro_score'],'spec_score':payload['spec_score']}); HISTORY.write_text(json.dumps(hist[-1000:],ensure_ascii=False,indent=2)); print(json.dumps({'score':payload['score'],'provider':provider,'updated':payload['updated_at_display']},ensure_ascii=False))
 if __name__=='__main__':main()
