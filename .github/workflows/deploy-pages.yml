@@ -5,7 +5,7 @@ on:
     branches: ["main"]
   workflow_dispatch:
   workflow_run:
-    workflows: ["Update correction index"]
+    workflows: ["Update correction index", "Update correction index backtest"]
     types: [completed]
     branches: ["main"]
 
@@ -33,8 +33,8 @@ jobs:
       - name: Prepare public site
         run: |
           mkdir -p public/data
-          cp index.html public/
-          cp data/latest.json data/history.json public/data/
+          cp index.html backtest.js public/
+          cp data/latest.json data/history.json data/backtest.json public/data/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public

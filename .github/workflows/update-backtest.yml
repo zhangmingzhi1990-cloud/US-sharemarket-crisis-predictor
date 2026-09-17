@@ -1,0 +1,40 @@
+name: Update correction index backtest
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "43 2 * * *"
+  push:
+    branches: ["main"]
+    paths:
+      - "scripts/build_backtest.py"
+      - ".github/workflows/update-backtest.yml"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: correction-index-backtest
+  cancel-in-progress: true
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Rebuild daily history and validation
+        run: python scripts/build_backtest.py
+      - name: Commit changed backtest data
+        run: |
+          git config user.name "correction-index-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add data/backtest.json
+          if git diff --cached --quiet; then
+            echo "No backtest data changes"
+          else
+            git commit -m "chore: update correction index backtest"
+            git push
+          fi
