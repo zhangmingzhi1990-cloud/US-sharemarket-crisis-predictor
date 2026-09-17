@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 from __future__ import annotations
-import os,json,csv,io,statistics,time,urllib.request,urllib.parse,zipfile
+import os,json,csv,io,statistics,subprocess,urllib.request,urllib.parse,zipfile
 from pathlib import Path
 from datetime import date,datetime,timezone
 from zoneinfo import ZoneInfo
@@ -50,10 +50,13 @@ def parse_fred_csv(text,series):
                 series[sid].append((observed,float(raw)))
 def fetch_fred():
     ids=list(FRED_IDS.values());url='https://fred.stlouisfed.org/graph/fredgraph.csv?'+urllib.parse.urlencode({'id':','.join(ids)})
-    for attempt in range(3):
+    for attempt in range(2):
         try:
-            request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 correction-index'})
-            with urllib.request.urlopen(request,timeout=30) as response:payload=response.read()
+            if attempt==0:
+                request=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0 correction-index'})
+                with urllib.request.urlopen(request,timeout=15) as response:payload=response.read()
+            else:
+                payload=subprocess.run(['curl','-fsSL','--connect-timeout','10','--max-time','60',url],check=True,capture_output=True,timeout=70).stdout
             series={sid:[] for sid in ids}
             if zipfile.is_zipfile(io.BytesIO(payload)):
                 with zipfile.ZipFile(io.BytesIO(payload)) as archive:
@@ -69,9 +72,8 @@ def fetch_fred():
                 if age<0 or age>(75 if sid=='CPILFESL' else 10):raise ValueError(f'Stale FRED observations for {sid}: {rows[-1][0]}')
             return series
         except Exception as e:
-            if attempt==2:raise RuntimeError('FRED data unavailable; keeping the last published snapshot') from e
+            if attempt==1:raise RuntimeError('FRED data unavailable; keeping the last published snapshot') from e
             print(f'FRED attempt {attempt+1} failed:',e)
-            time.sleep(attempt+1)
 def last(rows):return rows[-1]['c'] if rows else None
 def pct(rows,d=1):
     if len(rows)<d+1:return None
