@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "updated_at": "2026-09-19T22:25:00.258538+00:00",
-  "updated_at_display": "2026-09-20 08:25 Sydney",
+  "updated_at": "2026-09-19T23:23:45.767404+00:00",
+  "updated_at_display": "2026-09-20 09:23 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
   "score": 5.07,
