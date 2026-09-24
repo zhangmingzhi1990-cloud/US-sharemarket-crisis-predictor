@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "updated_at": "2026-09-24T20:28:45.367328+00:00",
-  "updated_at_display": "2026-09-25 06:28 Sydney",
+  "updated_at": "2026-09-24T21:26:24.814429+00:00",
+  "updated_at_display": "2026-09-25 07:26 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
   "score": 5.14,
@@ -88,7 +88,7 @@
   ],
   "market": {
     "SPY": {
-      "display": "767.27 (-0.07%)"
+      "display": "767.18 (-0.08%)"
     },
     "QQQ": {
       "display": "741.10 (-0.01%)"
@@ -106,7 +106,7 @@
       "display": "156.05 (+0.55%)"
     },
     "IWM": {
-      "display": "281.69 (-0.08%)"
+      "display": "281.66 (-0.09%)"
     },
     "RSP": {
       "display": "210.26 (-0.50%)"
