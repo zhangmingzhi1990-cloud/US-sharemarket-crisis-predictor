@@ -1,7 +1,7 @@
 {
   "version": 2,
-  "updated_at": "2026-09-28T20:28:09.696988+00:00",
-  "updated_at_display": "2026-09-29 06:28 Sydney",
+  "updated_at": "2026-09-28T21:27:40.777790+00:00",
+  "updated_at_display": "2026-09-29 07:27 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
   "score": 7.12,
@@ -31,7 +31,7 @@
     },
     {
       "id": "breadth",
-      "score": 3.95,
+      "score": 3.96,
       "raw_display": "breadth相对 -0.82%",
       "note": "RSP/SPY + IWM/QQQ代理",
       "weight": 10
@@ -80,7 +80,7 @@
     },
     {
       "id": "riskoff",
-      "score": 4.2,
+      "score": 4.21,
       "raw_display": "1D basket -0.60%",
       "note": "QQQ/IWM/ARKK/XBI平均",
       "weight": 5
@@ -106,7 +106,7 @@
       "display": "156.61 (+1.02%)"
     },
     "IWM": {
-      "display": "280.05 (-0.68%)"
+      "display": "280.02 (-0.69%)"
     },
     "RSP": {
       "display": "209.74 (-0.65%)"
