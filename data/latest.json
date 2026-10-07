@@ -1,38 +1,38 @@
 {
   "version": 2,
-  "updated_at": "2026-10-07T16:34:44.147987+00:00",
-  "updated_at_display": "2026-10-08 03:34 Sydney",
+  "updated_at": "2026-10-07T17:32:55.146024+00:00",
+  "updated_at_display": "2026-10-08 04:32 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
-  "score": 7.32,
+  "score": 7.38,
   "macro_score": 9.28,
-  "spec_score": 6.06,
+  "spec_score": 6.17,
   "signals": [
     {
       "id": "hood",
-      "score": 5.51,
-      "raw_display": "HOOD 5D -3.01%",
+      "score": 5.57,
+      "raw_display": "HOOD 5D -3.14%",
       "note": "euphoria后的5日回撤",
       "weight": 14
     },
     {
       "id": "hoodqqq",
-      "score": 6.92,
-      "raw_display": "5D相对 -5.26%",
+      "score": 7.06,
+      "raw_display": "5D相对 -5.48%",
       "note": "HOOD相对QQQ越弱，风险越高",
       "weight": 14
     },
     {
       "id": "arkk",
-      "score": 5.51,
-      "raw_display": "高beta相对 -2.87%",
+      "score": 5.74,
+      "raw_display": "高beta相对 -3.13%",
       "note": "ARKK/SMH/XBI相对QQQ",
       "weight": 10
     },
     {
       "id": "breadth",
-      "score": 4.58,
-      "raw_display": "breadth相对 -1.35%",
+      "score": 4.59,
+      "raw_display": "breadth相对 -1.36%",
       "note": "RSP/SPY + IWM/QQQ代理",
       "weight": 10
     },
@@ -46,7 +46,7 @@
     {
       "id": "oil",
       "score": 10,
-      "raw_display": "Brent $113.96 / WTI $96.16",
+      "raw_display": "Brent $125.44 / WTI $96.24",
       "note": "高油价增加通胀压力",
       "weight": 9
     },
@@ -80,36 +80,36 @@
     },
     {
       "id": "riskoff",
-      "score": 4.52,
-      "raw_display": "1D basket -0.76%",
+      "score": 4.81,
+      "raw_display": "1D basket -0.91%",
       "note": "QQQ/IWM/ARKK/XBI平均",
       "weight": 5
     }
   ],
   "market": {
     "SPY": {
-      "display": "776.78 (-0.30%)"
+      "display": "777.42 (-0.21%)"
     },
     "QQQ": {
-      "display": "756.37 (-0.43%)"
+      "display": "757.06 (-0.34%)"
     },
     "HOOD": {
-      "display": "109.11 (-2.58%)"
+      "display": "108.96 (-2.71%)"
     },
     "ARKK": {
-      "display": "88.69 (-1.99%)"
+      "display": "88.42 (-2.29%)"
     },
     "SMH": {
-      "display": "622.85 (-1.53%)"
+      "display": "624.44 (-1.27%)"
     },
     "XBI": {
-      "display": "151.84 (+0.62%)"
+      "display": "151.12 (+0.14%)"
     },
     "IWM": {
-      "display": "277.85 (-1.24%)"
+      "display": "278.14 (-1.14%)"
     },
     "RSP": {
-      "display": "210.95 (-0.65%)"
+      "display": "211.07 (-0.59%)"
     },
     "VIX": {
       "display": "15.01 (2026-10-06)",
@@ -124,12 +124,12 @@
       "asof": "2026-10-05"
     },
     "BRENT": {
-      "display": "$113.96 (2026-09-29)",
-      "asof": "2026-09-29"
+      "display": "$125.44 (2026-10-06)",
+      "asof": "2026-10-06"
     },
     "WTI": {
-      "display": "$96.16 (2026-09-29)",
-      "asof": "2026-09-29"
+      "display": "$96.24 (2026-10-06)",
+      "asof": "2026-10-06"
     }
   }
 }
