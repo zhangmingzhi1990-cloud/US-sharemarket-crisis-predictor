@@ -1,31 +1,31 @@
 {
   "version": 2,
-  "updated_at": "2026-10-06T23:28:33.920672+00:00",
-  "updated_at_display": "2026-10-07 10:28 Sydney",
+  "updated_at": "2026-10-07T00:41:34.074523+00:00",
+  "updated_at_display": "2026-10-07 11:41 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
-  "score": 7.51,
+  "score": 7.03,
   "macro_score": 9.28,
-  "spec_score": 6.38,
+  "spec_score": 5.59,
   "signals": [
     {
       "id": "hood",
-      "score": 5.82,
-      "raw_display": "HOOD 5D -3.63%",
+      "score": 5.01,
+      "raw_display": "HOOD 5D -2.02%",
       "note": "euphoria后的5日回撤",
       "weight": 14
     },
     {
       "id": "hoodqqq",
-      "score": 7.77,
-      "raw_display": "5D相对 -6.58%",
+      "score": 6.73,
+      "raw_display": "5D相对 -4.96%",
       "note": "HOOD相对QQQ越弱，风险越高",
       "weight": 14
     },
     {
       "id": "arkk",
-      "score": 5.11,
-      "raw_display": "高beta相对 -2.41%",
+      "score": 4.29,
+      "raw_display": "高beta相对 -1.48%",
       "note": "ARKK/SMH/XBI相对QQQ",
       "weight": 10
     },
@@ -80,8 +80,8 @@
     },
     {
       "id": "riskoff",
-      "score": 6.06,
-      "raw_display": "1D basket -1.53%",
+      "score": 3.18,
+      "raw_display": "1D basket -0.09%",
       "note": "QQQ/IWM/ARKK/XBI平均",
       "weight": 5
     }
@@ -94,10 +94,10 @@
       "display": "759.66 (+0.46%)"
     },
     "HOOD": {
-      "display": "112.00 (-1.85%)"
+      "display": "114.11 (+1.22%)"
     },
     "ARKK": {
-      "display": "90.49 (-2.47%)"
+      "display": "92.78 (+3.28%)"
     },
     "SMH": {
       "display": "632.50 (-0.22%)"
