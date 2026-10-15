@@ -1,38 +1,38 @@
 {
   "version": 2,
-  "updated_at": "2026-10-15T18:19:12.063794+00:00",
-  "updated_at_display": "2026-10-16 05:19 Sydney",
+  "updated_at": "2026-10-15T22:18:36.024186+00:00",
+  "updated_at_display": "2026-10-16 09:18 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
-  "score": 6.33,
-  "macro_score": 9.26,
-  "spec_score": 4.45,
+  "score": 6.01,
+  "macro_score": 9.28,
+  "spec_score": 3.92,
   "signals": [
     {
       "id": "hood",
-      "score": 6.36,
-      "raw_display": "HOOD 5D -4.72%",
+      "score": 5.41,
+      "raw_display": "HOOD 5D -2.82%",
       "note": "euphoria后的5日回撤",
       "weight": 14
     },
     {
       "id": "hoodqqq",
-      "score": 4.49,
-      "raw_display": "5D相对 -1.52%",
+      "score": 3.63,
+      "raw_display": "5D相对 -0.20%",
       "note": "HOOD相对QQQ越弱，风险越高",
       "weight": 14
     },
     {
       "id": "arkk",
-      "score": 3.74,
-      "raw_display": "高beta相对 -0.84%",
+      "score": 3.57,
+      "raw_display": "高beta相对 -0.66%",
       "note": "ARKK/SMH/XBI相对QQQ",
       "weight": 10
     },
     {
       "id": "breadth",
-      "score": 0.96,
-      "raw_display": "breadth相对 +1.75%",
+      "score": 0.97,
+      "raw_display": "breadth相对 +1.74%",
       "note": "RSP/SPY + IWM/QQQ代理",
       "weight": 10
     },
@@ -46,28 +46,28 @@
     {
       "id": "oil",
       "score": 10,
-      "raw_display": "Brent $125.44 / WTI $96.24",
+      "raw_display": "Brent $126.55 / WTI $101.91",
       "note": "高油价增加通胀压力",
       "weight": 9
     },
     {
       "id": "teny",
       "score": 10,
-      "raw_display": "5.210%",
+      "raw_display": "5.190%",
       "note": "5%附近为关键阈值",
       "weight": 11
     },
     {
       "id": "twoy",
-      "score": 8.95,
-      "raw_display": "4.790%",
+      "score": 9.1,
+      "raw_display": "4.820%",
       "note": "短端反映政策路径",
       "weight": 6
     },
     {
       "id": "fed",
       "score": 10,
-      "raw_display": "2Y-Fed +0.79pp",
+      "raw_display": "2Y-Fed +0.82pp",
       "note": "2Y与政策上限差作为代理",
       "weight": 8
     },
@@ -80,56 +80,56 @@
     },
     {
       "id": "riskoff",
-      "score": 1.77,
-      "raw_display": "1D basket +0.62%",
+      "score": 0.64,
+      "raw_display": "1D basket +1.18%",
       "note": "QQQ/IWM/ARKK/XBI平均",
       "weight": 5
     }
   ],
   "market": {
     "SPY": {
-      "display": "769.76 (+0.02%)"
+      "display": "771.79 (+0.28%)"
     },
     "QQQ": {
-      "display": "723.70 (-0.72%)"
+      "display": "728.00 (-0.13%)"
     },
     "HOOD": {
-      "display": "101.96 (+0.87%)"
+      "display": "103.99 (+2.88%)"
     },
     "ARKK": {
-      "display": "84.77 (+0.34%)"
+      "display": "85.69 (+1.43%)"
     },
     "SMH": {
-      "display": "551.52 (-2.34%)"
+      "display": "558.84 (-1.04%)"
     },
     "XBI": {
-      "display": "149.74 (+2.02%)"
+      "display": "149.78 (+2.05%)"
     },
     "IWM": {
-      "display": "273.61 (+0.83%)"
+      "display": "275.08 (+1.37%)"
     },
     "RSP": {
-      "display": "214.39 (+1.08%)"
+      "display": "215.00 (+1.37%)"
     },
     "VIX": {
       "display": "16.87 (2026-10-14)",
       "asof": "2026-10-14"
     },
     "DGS10": {
-      "display": "5.210% (2026-10-13)",
-      "asof": "2026-10-13"
+      "display": "5.190% (2026-10-14)",
+      "asof": "2026-10-14"
     },
     "DGS2": {
-      "display": "4.790% (2026-10-13)",
-      "asof": "2026-10-13"
+      "display": "4.820% (2026-10-14)",
+      "asof": "2026-10-14"
     },
     "BRENT": {
-      "display": "$125.44 (2026-10-06)",
-      "asof": "2026-10-06"
+      "display": "$126.55 (2026-10-14)",
+      "asof": "2026-10-14"
     },
     "WTI": {
-      "display": "$96.24 (2026-10-06)",
-      "asof": "2026-10-06"
+      "display": "$101.91 (2026-10-14)",
+      "asof": "2026-10-14"
     }
   }
 }
