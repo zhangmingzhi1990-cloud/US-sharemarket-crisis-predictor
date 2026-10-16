@@ -1,38 +1,38 @@
 {
   "version": 2,
-  "updated_at": "2026-10-16T17:24:48.319924+00:00",
-  "updated_at_display": "2026-10-17 04:24 Sydney",
+  "updated_at": "2026-10-16T21:09:08.869012+00:00",
+  "updated_at_display": "2026-10-17 08:09 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
-  "score": 7.32,
-  "macro_score": 9.28,
-  "spec_score": 6.06,
+  "score": 7.33,
+  "macro_score": 9.24,
+  "spec_score": 6.11,
   "signals": [
     {
       "id": "hood",
-      "score": 8.46,
-      "raw_display": "HOOD 5D -8.92%",
+      "score": 8.66,
+      "raw_display": "HOOD 5D -9.31%",
       "note": "euphoria后的5日回撤",
       "weight": 14
     },
     {
       "id": "hoodqqq",
-      "score": 5.85,
-      "raw_display": "5D相对 -3.62%",
+      "score": 5.96,
+      "raw_display": "5D相对 -3.79%",
       "note": "HOOD相对QQQ越弱，风险越高",
       "weight": 14
     },
     {
       "id": "arkk",
-      "score": 5.59,
-      "raw_display": "高beta相对 -2.96%",
+      "score": 5.63,
+      "raw_display": "高beta相对 -3.00%",
       "note": "ARKK/SMH/XBI相对QQQ",
       "weight": 10
     },
     {
       "id": "breadth",
-      "score": 0.38,
-      "raw_display": "breadth相对 +2.24%",
+      "score": 0.12,
+      "raw_display": "breadth相对 +2.47%",
       "note": "RSP/SPY + IWM/QQQ代理",
       "weight": 10
     },
@@ -53,21 +53,21 @@
     {
       "id": "teny",
       "score": 10,
-      "raw_display": "5.190%",
+      "raw_display": "5.100%",
       "note": "5%附近为关键阈值",
       "weight": 11
     },
     {
       "id": "twoy",
-      "score": 9.1,
-      "raw_display": "4.820%",
+      "score": 8.85,
+      "raw_display": "4.770%",
       "note": "短端反映政策路径",
       "weight": 6
     },
     {
       "id": "fed",
       "score": 10,
-      "raw_display": "2Y-Fed +0.82pp",
+      "raw_display": "2Y-Fed +0.77pp",
       "note": "2Y与政策上限差作为代理",
       "weight": 8
     },
@@ -80,48 +80,48 @@
     },
     {
       "id": "riskoff",
-      "score": 9.13,
-      "raw_display": "1D basket -3.06%",
+      "score": 9.27,
+      "raw_display": "1D basket -3.14%",
       "note": "QQQ/IWM/ARKK/XBI平均",
       "weight": 5
     }
   ],
   "market": {
     "SPY": {
-      "display": "763.11 (-1.12%)"
+      "display": "763.25 (-1.11%)"
     },
     "QQQ": {
-      "display": "711.47 (-2.27%)"
+      "display": "709.80 (-2.50%)"
     },
     "HOOD": {
-      "display": "99.30 (-4.51%)"
+      "display": "98.87 (-4.92%)"
     },
     "ARKK": {
-      "display": "81.77 (-4.57%)"
+      "display": "81.65 (-4.71%)"
     },
     "SMH": {
-      "display": "544.34 (-2.60%)"
+      "display": "539.79 (-3.41%)"
     },
     "XBI": {
-      "display": "144.20 (-3.73%)"
+      "display": "144.32 (-3.65%)"
     },
     "IWM": {
-      "display": "270.45 (-1.68%)"
+      "display": "270.44 (-1.69%)"
     },
     "RSP": {
-      "display": "213.57 (-0.67%)"
+      "display": "214.09 (-0.42%)"
     },
     "VIX": {
       "display": "16.46 (2026-10-15)",
       "asof": "2026-10-15"
     },
     "DGS10": {
-      "display": "5.190% (2026-10-14)",
-      "asof": "2026-10-14"
+      "display": "5.100% (2026-10-15)",
+      "asof": "2026-10-15"
     },
     "DGS2": {
-      "display": "4.820% (2026-10-14)",
-      "asof": "2026-10-14"
+      "display": "4.770% (2026-10-15)",
+      "asof": "2026-10-15"
     },
     "BRENT": {
       "display": "$126.55 (2026-10-14)",
