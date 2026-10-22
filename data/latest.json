@@ -1,38 +1,38 @@
 {
   "version": 2,
-  "updated_at": "2026-10-22T15:17:19.277038+00:00",
-  "updated_at_display": "2026-10-23 02:17 Sydney",
+  "updated_at": "2026-10-22T19:16:28.695620+00:00",
+  "updated_at_display": "2026-10-23 06:16 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
-  "score": 6.67,
+  "score": 6.9,
   "macro_score": 9.26,
-  "spec_score": 5.01,
+  "spec_score": 5.4,
   "signals": [
     {
       "id": "hood",
-      "score": 7.15,
-      "raw_display": "HOOD 5D -6.29%",
+      "score": 7.84,
+      "raw_display": "HOOD 5D -7.68%",
       "note": "euphoria后的5日回撤",
       "weight": 14
     },
     {
       "id": "hoodqqq",
-      "score": 5.76,
-      "raw_display": "5D相对 -3.48%",
+      "score": 6.3,
+      "raw_display": "5D相对 -4.31%",
       "note": "HOOD相对QQQ越弱，风险越高",
       "weight": 14
     },
     {
       "id": "arkk",
-      "score": 2.78,
-      "raw_display": "高beta相对 +0.25%",
+      "score": 3.05,
+      "raw_display": "高beta相对 -0.05%",
       "note": "ARKK/SMH/XBI相对QQQ",
       "weight": 10
     },
     {
       "id": "breadth",
-      "score": 0.17,
-      "raw_display": "breadth相对 +2.43%",
+      "score": 0,
+      "raw_display": "breadth相对 +3.10%",
       "note": "RSP/SPY + IWM/QQQ代理",
       "weight": 10
     },
@@ -80,36 +80,36 @@
     },
     {
       "id": "riskoff",
-      "score": 6.28,
-      "raw_display": "1D basket -1.64%",
+      "score": 7.38,
+      "raw_display": "1D basket -2.19%",
       "note": "QQQ/IWM/ARKK/XBI平均",
       "weight": 5
     }
   ],
   "market": {
     "SPY": {
-      "display": "762.90 (-1.32%)"
+      "display": "762.24 (-1.40%)"
     },
     "QQQ": {
-      "display": "707.54 (-2.44%)"
+      "display": "703.47 (-3.00%)"
     },
     "HOOD": {
-      "display": "97.44 (-4.40%)"
+      "display": "96.00 (-5.82%)"
     },
     "ARKK": {
-      "display": "82.54 (-3.37%)"
+      "display": "81.47 (-4.62%)"
     },
     "SMH": {
-      "display": "527.13 (-5.31%)"
+      "display": "523.66 (-5.93%)"
     },
     "XBI": {
-      "display": "152.26 (-0.34%)"
+      "display": "151.20 (-1.03%)"
     },
     "IWM": {
-      "display": "275.36 (-0.41%)"
+      "display": "276.18 (-0.11%)"
     },
     "RSP": {
-      "display": "216.70 (+0.03%)"
+      "display": "217.55 (+0.42%)"
     },
     "VIX": {
       "display": "16.68 (2026-10-21)",
