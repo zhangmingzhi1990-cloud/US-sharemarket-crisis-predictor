@@ -1,73 +1,73 @@
 {
   "version": 2,
-  "updated_at": "2026-11-18T13:58:57.254368+00:00",
-  "updated_at_display": "2026-11-19 00:58 Sydney",
+  "updated_at": "2026-11-18T21:57:22.942497+00:00",
+  "updated_at_display": "2026-11-19 08:57 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
-  "score": 7.69,
-  "macro_score": 8.5,
-  "spec_score": 7.17,
+  "score": 7.5,
+  "macro_score": 8.52,
+  "spec_score": 6.85,
   "signals": [
     {
       "id": "hood",
       "score": 10,
-      "raw_display": "HOOD 5D -14.93%",
+      "raw_display": "HOOD 5D -18.22%",
       "note": "euphoria后的5日回撤",
       "weight": 14
     },
     {
       "id": "hoodqqq",
       "score": 10,
-      "raw_display": "5D相对 -12.29%",
+      "raw_display": "5D相对 -13.75%",
       "note": "HOOD相对QQQ越弱，风险越高",
       "weight": 14
     },
     {
       "id": "arkk",
-      "score": 6.32,
-      "raw_display": "高beta相对 -3.79%",
+      "score": 6.67,
+      "raw_display": "高beta相对 -4.20%",
       "note": "ARKK/SMH/XBI相对QQQ",
       "weight": 10
     },
     {
       "id": "breadth",
-      "score": 3.85,
-      "raw_display": "breadth相对 -0.73%",
+      "score": 2.68,
+      "raw_display": "breadth相对 +0.27%",
       "note": "RSP/SPY + IWM/QQQ代理",
       "weight": 10
     },
     {
       "id": "vix",
       "score": 4,
-      "raw_display": "22.91",
+      "raw_display": "25.46",
       "note": "低VIX与高宏观风险并存=complacency",
       "weight": 8
     },
     {
       "id": "oil",
-      "score": 6.43,
-      "raw_display": "Brent $92.14 / WTI $89.62",
+      "score": 6.59,
+      "raw_display": "Brent $92.94 / WTI $89.53",
       "note": "高油价增加通胀压力",
       "weight": 9
     },
     {
       "id": "teny",
       "score": 10,
-      "raw_display": "5.120%",
+      "raw_display": "5.100%",
       "note": "5%附近为关键阈值",
       "weight": 11
     },
     {
       "id": "twoy",
-      "score": 9.15,
-      "raw_display": "4.830%",
+      "score": 9.0,
+      "raw_display": "4.800%",
       "note": "短端反映政策路径",
       "weight": 6
     },
     {
       "id": "fed",
       "score": 10,
-      "raw_display": "2Y-Fed +0.83pp",
+      "raw_display": "2Y-Fed +0.80pp",
       "note": "2Y与政策上限差作为代理",
       "weight": 8
     },
@@ -80,56 +80,56 @@
     },
     {
       "id": "riskoff",
-      "score": 4.78,
-      "raw_display": "1D basket -0.89%",
+      "score": 2.53,
+      "raw_display": "1D basket +0.23%",
       "note": "QQQ/IWM/ARKK/XBI平均",
       "weight": 5
     }
   ],
   "market": {
     "SPY": {
-      "display": "732.44 (-1.01%)"
+      "display": "730.20 (-0.31%)"
     },
     "QQQ": {
-      "display": "656.95 (-0.73%)"
+      "display": "659.51 (+0.39%)"
     },
     "HOOD": {
-      "display": "69.19 (-3.98%)"
+      "display": "69.17 (-0.03%)"
     },
     "ARKK": {
-      "display": "70.84 (-0.99%)"
+      "display": "71.06 (+0.31%)"
     },
     "SMH": {
-      "display": "460.10 (-0.39%)"
+      "display": "459.54 (-0.12%)"
     },
     "XBI": {
-      "display": "145.28 (-0.41%)"
+      "display": "145.04 (-0.17%)"
     },
     "IWM": {
-      "display": "269.05 (-1.43%)"
+      "display": "270.12 (+0.40%)"
     },
     "RSP": {
-      "display": "215.76 (-1.45%)"
+      "display": "215.43 (-0.15%)"
     },
     "VIX": {
-      "display": "22.91 (2026-11-16)",
-      "asof": "2026-11-16"
+      "display": "25.46 (2026-11-17)",
+      "asof": "2026-11-17"
     },
     "DGS10": {
-      "display": "5.120% (2026-11-16)",
-      "asof": "2026-11-16"
+      "display": "5.100% (2026-11-17)",
+      "asof": "2026-11-17"
     },
     "DGS2": {
-      "display": "4.830% (2026-11-16)",
-      "asof": "2026-11-16"
+      "display": "4.800% (2026-11-17)",
+      "asof": "2026-11-17"
     },
     "BRENT": {
-      "display": "$92.14 (2026-11-11)",
-      "asof": "2026-11-11"
+      "display": "$92.94 (2026-11-17)",
+      "asof": "2026-11-17"
     },
     "WTI": {
-      "display": "$89.62 (2026-11-11)",
-      "asof": "2026-11-11"
+      "display": "$89.53 (2026-11-17)",
+      "asof": "2026-11-17"
     }
   }
 }
