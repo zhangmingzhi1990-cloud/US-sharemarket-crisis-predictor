@@ -1,45 +1,45 @@
 {
   "version": 2,
-  "updated_at": "2026-11-27T09:40:53.042009+00:00",
-  "updated_at_display": "2026-11-27 20:40 Sydney",
+  "updated_at": "2026-11-27T19:28:25.312024+00:00",
+  "updated_at_display": "2026-11-28 06:28 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
-  "score": 5.14,
+  "score": 4.86,
   "macro_score": 7.85,
-  "spec_score": 3.41,
+  "spec_score": 2.95,
   "signals": [
     {
       "id": "hood",
-      "score": 6.45,
-      "raw_display": "HOOD 5D -4.90%",
+      "score": 4.53,
+      "raw_display": "HOOD 5D -1.06%",
       "note": "euphoria后的5日回撤",
       "weight": 14
     },
     {
       "id": "hoodqqq",
-      "score": 4.16,
-      "raw_display": "5D相对 -1.02%",
+      "score": 4.79,
+      "raw_display": "5D相对 -1.99%",
       "note": "HOOD相对QQQ越弱，风险越高",
       "weight": 14
     },
     {
       "id": "arkk",
-      "score": 1.15,
-      "raw_display": "高beta相对 +2.11%",
+      "score": 1.14,
+      "raw_display": "高beta相对 +2.13%",
       "note": "ARKK/SMH/XBI相对QQQ",
       "weight": 10
     },
     {
       "id": "breadth",
-      "score": 0,
-      "raw_display": "breadth相对 +2.70%",
+      "score": 0.58,
+      "raw_display": "breadth相对 +2.07%",
       "note": "RSP/SPY + IWM/QQQ代理",
       "weight": 10
     },
     {
       "id": "vix",
       "score": 4,
-      "raw_display": "26.36",
+      "raw_display": "26.80",
       "note": "低VIX与高宏观风险并存=complacency",
       "weight": 8
     },
@@ -80,40 +80,40 @@
     },
     {
       "id": "riskoff",
-      "score": 3.15,
-      "raw_display": "1D basket -0.07%",
+      "score": 0,
+      "raw_display": "1D basket +2.23%",
       "note": "QQQ/IWM/ARKK/XBI平均",
       "weight": 5
     }
   ],
   "market": {
     "SPY": {
-      "display": "716.70 (-0.29%)"
+      "display": "728.32 (+1.62%)"
     },
     "QQQ": {
-      "display": "633.93 (-0.65%)"
+      "display": "650.99 (+2.69%)"
     },
     "HOOD": {
-      "display": "65.78 (+0.20%)"
+      "display": "67.92 (+3.25%)"
     },
     "ARKK": {
-      "display": "67.36 (-0.15%)"
+      "display": "69.50 (+3.18%)"
     },
     "SMH": {
-      "display": "422.46 (-1.01%)"
+      "display": "440.06 (+4.17%)"
     },
     "XBI": {
-      "display": "156.60 (-0.14%)"
+      "display": "158.50 (+1.21%)"
     },
     "IWM": {
-      "display": "268.87 (+0.65%)"
+      "display": "273.79 (+1.83%)"
     },
     "RSP": {
-      "display": "215.74 (+0.83%)"
+      "display": "218.38 (+1.22%)"
     },
     "VIX": {
-      "display": "26.36 (2026-11-24)",
-      "asof": "2026-11-24"
+      "display": "26.80 (2026-11-26)",
+      "asof": "2026-11-26"
     },
     "DGS10": {
       "display": "4.910% (2026-11-24)",
