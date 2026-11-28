@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "updated_at": "2026-11-27T19:28:25.312024+00:00",
-  "updated_at_display": "2026-11-28 06:28 Sydney",
+  "updated_at": "2026-11-28T02:41:11.660194+00:00",
+  "updated_at_display": "2026-11-28 13:41 Sydney",
   "freshness": "自动更新 · 后备行情",
   "provider_note": "股票/ETF: Yahoo fallback；宏观: FRED（括号内为数据日期）。GitHub Action 每小时重算。",
-  "score": 4.86,
-  "macro_score": 7.85,
+  "score": 4.8,
+  "macro_score": 7.7,
   "spec_score": 2.95,
   "signals": [
     {
@@ -52,22 +52,22 @@
     },
     {
       "id": "teny",
-      "score": 8.7,
-      "raw_display": "4.910%",
+      "score": 8.3,
+      "raw_display": "4.850%",
       "note": "5%附近为关键阈值",
       "weight": 11
     },
     {
       "id": "twoy",
-      "score": 8.15,
-      "raw_display": "4.630%",
+      "score": 8.05,
+      "raw_display": "4.610%",
       "note": "短端反映政策路径",
       "weight": 6
     },
     {
       "id": "fed",
-      "score": 9.44,
-      "raw_display": "2Y-Fed +0.63pp",
+      "score": 9.35,
+      "raw_display": "2Y-Fed +0.61pp",
       "note": "2Y与政策上限差作为代理",
       "weight": 8
     },
@@ -116,12 +116,12 @@
       "asof": "2026-11-26"
     },
     "DGS10": {
-      "display": "4.910% (2026-11-24)",
-      "asof": "2026-11-24"
+      "display": "4.850% (2026-11-25)",
+      "asof": "2026-11-25"
     },
     "DGS2": {
-      "display": "4.630% (2026-11-24)",
-      "asof": "2026-11-24"
+      "display": "4.610% (2026-11-25)",
+      "asof": "2026-11-25"
     },
     "BRENT": {
       "display": "$91.80 (2026-11-24)",
